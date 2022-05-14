@@ -5,6 +5,7 @@
 
 void main(int argc, char *argv[])
 {
-    test_list();
+    // test_list();
+    test_fifo();
     // test_rbtree();
 }
