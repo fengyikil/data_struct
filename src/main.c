@@ -6,6 +6,7 @@
 void main(int argc, char *argv[])
 {
     // test_list();
-    test_fifo();
+    test_list_sort();
+    // test_fifo();
     // test_rbtree();
 }

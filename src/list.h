@@ -92,7 +92,7 @@ static inline int list_empty(const struct list_head *head)
 // 获取"MEMBER成员"在"结构体TYPE"中的位置偏移
 #define offsetof(TYPE, MEMBER) ((size_t) & ((TYPE *)0)->MEMBER)
 
-// 根据"结构体(type)变量"中的"域成员变量(member)的指针(ptr)"来获取指向整个结构体变量的指针
+// 根据"结构体(type)变量"中的"域成len员变量(member)的指针(ptr)"来获取指向整个结构体变量的指针
 #define container_of(ptr, type, member) ({          \
     const typeof( ((type *)0)->member ) *__mptr = (ptr);    \
     (type *)( (char *)__mptr - offsetof(type,member) ); })
@@ -108,4 +108,9 @@ static inline int list_empty(const struct list_head *head)
 #define list_entry(ptr, type, member) \
     container_of(ptr, type, member)
 
+typedef int (*less_callback)(struct list_head *, struct list_head *);
+
+extern int list_len(const struct list_head *head);
+extern struct list_head *list_move_next(const struct list_head *pos, int step, struct list_head *end);
+extern struct list_head *sort_list(struct list_head *head, less_callback less);
 #endif
