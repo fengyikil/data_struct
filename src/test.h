@@ -4,4 +4,5 @@ void test_list();
 void test_list_sort();
 void test_rbtree();
 void test_fifo();
+void test_file();
 #endif
